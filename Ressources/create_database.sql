@@ -8,7 +8,7 @@ USE gallery;
 
 CREATE TABLE Users (
 ID int auto_increment not null,
-UserName nvarchar(50) not null,
+UserName nvarchar(50) UNIQUE not null,
 Pass nvarchar(60) not null,
 CONSTRAINT PK_UserId PRIMARY KEY CLUSTERED(ID ASC)
 );
