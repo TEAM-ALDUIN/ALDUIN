@@ -1,7 +1,7 @@
 <?php
-include_once('../inc/register.php');
+include_once('./inc/register.php');
 ?>
-<form method="post" action="../inc/register.php" id="frm-register">
+<form method="post" action="./inc/register.php" id="frm-register">
     <fieldset>
         <legend>Register</legend>
         <label for="username">Username</label>
@@ -11,6 +11,6 @@ include_once('../inc/register.php');
         <label for="password-check">Password</label>
         <input type="password" name="password-check" id="password-check"/>
         <span class="error"><?php echo $err_password;?></span><br/>
-        <input type="submit" value="Login"/>
+        <input type="submit" value="Register"/>
     </fieldset>
 </form>
