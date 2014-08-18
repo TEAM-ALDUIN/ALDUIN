@@ -13,15 +13,24 @@ Pass nvarchar(60) not null,
 CONSTRAINT PK_UserId PRIMARY KEY CLUSTERED(ID ASC)
 );
 
+CREATE TABLE Categories(
+ID int auto_increment not null,
+CatName nvarchar(100) not null,
+CONSTRAINT PK_CategoryId PRIMARY KEY CLUSTERED(ID ASC)
+);
+
 CREATE TABLE ImgAlbums(
 ID int auto_increment not null,
 UserId int not null,
-CatName nvarchar(100) not null,
+CategoryId int not null,
+AlbumName nvarchar(100) not null,
 IsPublic boolean DEFAULT 0,
 CatComment text,
 CONSTRAINT PK_ImgAlbumId PRIMARY KEY CLUSTERED(ID ASC),
-CONSTRAINT FK_Users_ImgAlbums FOREIGN KEY (UserId) REFERENCES Users(ID)
+CONSTRAINT FK_Users_ImgAlbums FOREIGN KEY (UserId) REFERENCES Users(ID),
+CONSTRAINT FK_Categories_ImgAlbums FOREIGN KEY (CategoryId) REFERENCES Categories(ID)
 );
+
 
 CREATE TABLE Images(
 ID int auto_increment not null,
