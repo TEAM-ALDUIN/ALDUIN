@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title>Alduin Gallery</title>
-</head>
-<body>
 <?php
-include('templates/register.php');
-?>
+include('templates/header.php');
+include('templates/main-left.php');
+include('templates/main-gallery.php');
+include('templates/footer.php');
 
-</body>
-</html>
+//include('templates/register.php');
+?>
