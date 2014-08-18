@@ -10,7 +10,7 @@ CREATE TABLE Users (
 ID int auto_increment not null,
 UserName nvarchar(50) not null,
 Pass nvarchar(60) not null,
-CONSTRAINT PK_Users PRIMARY KEY CLUSTERED(ID ASC)
+CONSTRAINT PK_UserId PRIMARY KEY CLUSTERED(ID ASC)
 );
 
 CREATE TABLE ImgAlbums(
@@ -19,7 +19,7 @@ UserId int not null,
 CatName nvarchar(100) not null,
 IsPublic boolean DEFAULT 0,
 CatComment text,
-CONSTRAINT PK_ImgAlbums PRIMARY KEY CLUSTERED(ID ASC),
+CONSTRAINT PK_ImgAlbumId PRIMARY KEY CLUSTERED(ID ASC),
 CONSTRAINT FK_Users_ImgAlbums FOREIGN KEY (UserId) REFERENCES Users(ID)
 );
 
@@ -28,9 +28,19 @@ ID int auto_increment not null,
 ImgName nvarchar(200) not null,
 ImgAlbumId int not null,
 ImgComment nvarchar(1000),
-Votes int DEFAULT 0,
-CONSTRAINT PK_Images PRIMARY KEY CLUSTERED(ID ASC),
+CONSTRAINT PK_ImageId PRIMARY KEY CLUSTERED(ID ASC),
 CONSTRAINT FK_Images_ImgAlbums FOREIGN KEY (ImgAlbumId) REFERENCES ImgAlbums(ID)
+);
+
+CREATE TABLE Votes(
+ID int auto_increment not null,
+VoteValue tinyint not null,
+UserId int not null,
+ImgId int not null,
+VoteDate timestamp not null,
+CONSTRAINT PK_VoteId PRIMARY KEY CLUSTERED(ID Asc),
+CONSTRAINT FK_Votes_Users FOREIGN KEY (UserId) REFERENCES Users(ID),
+CONSTRAINT FK_Votes_Images FOREIGN KEY (ImgId) REFERENCES Images(ID)
 );
 
 /*FILL TEST DATA*/
