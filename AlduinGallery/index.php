@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title></title>
+    <title>Alduin Gallery</title>
 </head>
 <body>
 <?php
-include('./templates/register.php');
+include('templates/register.php');
 ?>
 
 </body>
