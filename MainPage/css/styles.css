@@ -7,7 +7,7 @@ footer{
 }
 
 .nav{
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .jumbotron{
@@ -16,6 +16,11 @@ footer{
 
 .pagination{
     margin: 0px;
+}
+
+.h1{
+    font-size: 63px;
+    line-height: 0px;
 }
 
 .imgGallery{
