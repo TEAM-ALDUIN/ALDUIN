@@ -1,5 +1,5 @@
 <?php
-include_once('./inc/register.php');
+include_once('../inc/register.php');
 ?>
 <form method="post" action="" id="frm-register">
     <fieldset>

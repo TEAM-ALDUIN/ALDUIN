@@ -9,6 +9,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
         $passwordFromPost = $_POST['password'];
         $hash = password_hash($passwordFromPost, PASSWORD_BCRYPT, $options);
         mysqli_query($db,'Insert into Users(UserName, Pass) VALUES("'.$username.'","'.$hash.'")');
+        header('Location: ../index.php');
     } else {
         $err_password .= "Password doesn't match! ";
     }
