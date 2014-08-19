@@ -12,6 +12,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
         header('Location: ../index.php');
     } else {
         $err_password .= "Password doesn't match! ";
+
+
     }
 
 }

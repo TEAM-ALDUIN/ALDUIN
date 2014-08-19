@@ -1,10 +1,11 @@
 <main class="row">
             <div class="left col-lg-5">
-                <div class="jumbotron col-lg-12">
+
+                <div class="jumbotron col-lg-12" id="welcome">
                     <h1>Welcome!</h1>
                     <p>Not registered?</p>
                     <p>
-                        <a class="btn btn-success btn-lg">Create an account</a>
+                        <a class="btn btn-success btn-lg" onclick="return getRegistrationForm();">Create an account</a>
                     </p>
                 </div>
                 <div class="col-lg-12">

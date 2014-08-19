@@ -18,7 +18,7 @@
                             <li><a href="#">Categories</a></li>
                             <li><a href="#">Albums</a></li>
                             <li><a href="#">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                            <li><a href="#" onclick="return getRegistrationForm();">Register</a></li>
                         </ul>
                     </nav>
                 </div>

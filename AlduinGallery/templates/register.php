@@ -1,7 +1,7 @@
 <?php
 include_once('../inc/register.php');
 ?>
-<form method="post" action="" id="frm-register">
+<form method="post" action="templates/register.php" id="frm-register">
     <fieldset>
         <legend>Register</legend>
         <label for="username">Username</label>
