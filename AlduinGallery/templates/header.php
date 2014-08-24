@@ -15,7 +15,14 @@
                     <nav>
                         <ul class="nav nav-pills pull-left" role="tablist">
                             <li><a href="#">Home</a></li>
-                            <li><a href="#">Categories</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu"</li>
+									<li><a href="#">Cars</a></li>
+									<li><a href="#">Animals</a></li>
+									<li><a href="#">Nature</a></li>
+								</ul>
+							</li>
                             <li><a href="#">Albums</a></li>
                             <li><a href="#">Login</a></li>
                             <li><a href="#" onclick="return getRegistrationForm();">Register</a></li>
