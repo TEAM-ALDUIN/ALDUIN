@@ -1,0 +1,41 @@
+<div id="nonadmin">
+  <table border="0">
+    <tr>
+      <td colspan="4">
+        <pre> <?php echo $message ?> </pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="110">
+        <form method="post">
+          <br/>
+          Стара парола:
+          <input type="password" name="currpass" value="<?php echo $currpass ?>">
+          <br/>
+          <br/>
+          Нова парола:
+          <input type="password" name="newpass" value="<?php echo $newpass ?>">
+          <br/>
+          <br/>
+          Повторете парола:
+          <input type="password" name="reppass" value="<?php echo $reppass ?>">
+          <br/>
+          <br/>
+          <input style="width: 100%" type="submit" value="Смени паролата">
+          <br/>
+          <br/>
+        </form>
+      </td>
+      <td width="8" style="border-right: 1px solid #a0a0a0">  
+      </td>
+      <td width="8"> </td>
+      <td valign="top">
+        <br/>
+        Вашите права:
+        <br/>
+        <br/>
+        <?php echo $thisuser ?>
+      </td>
+    </tr>
+  </table>
+</div>

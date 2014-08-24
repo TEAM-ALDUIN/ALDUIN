@@ -1,0 +1,153 @@
+<div>
+  <form method="post" action="isbn.php">
+    <table cellspacing="2" cellpadding="0" width="471">
+      <tr>
+        <td width="36%">
+          ISBN: <input name="ISBN" type="text"> <!--add value-->
+        </td>
+        <td>
+          <input type="checkbox" name="noisbn"> без ISBN <!--add noisbn-->
+        </td>
+        <td align="right"> Година на издаване: </td>
+        <td width="30"> 
+          <input name="year" type="text"> <!--add value--> 
+        </td>
+      </tr>     
+    </table>
+    <table cellspacing="2" cellpadding="0" width="471">
+      <tr>
+      <td width="60"> Заглавие: </td>
+      <td> <input name="title" type="text"> </td> <!--add value-->
+    </table>
+    <table cellspacing="2" cellpadding="0" width="476">
+      <tr>
+        <td width="80"> Издателство: </td>
+        <td> <!-- add publist-->
+          <input id="ipub" style="display:none; width: 98%" type="text" name="addpublisher">
+        </td>
+        <td align="right" width="125">
+          <input id="savepub" style="display:none; width:60px;" type="submit" title="Запис" value="Запис">
+          <input id="noaddpub" style="display:none; width:60px;" type="button" title="Отказ" value="Отказ" onclick="NoAddPublisher()">
+          <input id="addpub" style="width:100%;" type="button" title="Добави издателство" value="Добави издател" onclick="AddPublisher()">
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="2" cellpadding="0" width="471">
+      <tr>
+        <td> 
+          Автори: <br/> 
+          <textarea name="author"> <!-- add author--> </textarea> 
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="2" cellpadding="0" width="476">
+      <tr>
+        <td width="60"> Предмет: </td>
+        <td>
+          <!--add subjlist-->
+          <input id="isubj" style="display:none; width: 98%;" type="text" name="addsubject">  
+        </td>
+        <td align="right" width="125">  
+          <input id="savesubj" style="display:none; width:60px;" type="submit" title="Запис" value="Запис">
+          <input id="noaddsubj" style="display:none; width:60px;" type="button" title="Отказ" value="Отказ" onclick="NoAddSubject()">
+          <input id="addsubj" style="width:100%;" type="button" title="Добави предмет" value="Добави предмет" onclick="AddSubject()">
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="2" cellpadding="0" width="474">
+      <tr>
+        <td width="170">
+          Тип:
+          <select id="type" style="width: 140px;" name="type">
+            <option value="1"> Учебник </option>
+            <option value="2"> Учебна тетрадка </option>
+            <option value="3"> Сборник </option>
+            <option value="4"> Други </option>
+          </select>
+        </td>
+        <td align="right">
+          Използва се в класове: - от
+          <select id="from" style="width: 40px; margin-right: 3px;" name="from" onChange="chFrom()">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+            <option value="8"> 8 </option>
+            <option value="9"> 9 </option>
+            <option value="10"> 10 </option>
+            <option value="11"> 11 </option>
+            <option value="12"> 12 </option>
+            <option value="13"> 13 </option>
+          </select>
+        </td>
+        <td align="right">
+          - до
+          <select id="to" style="width: 40px;" name="to" onChange="chTo()">
+            <option value="1"> 1 </option>
+            <option value="2"> 2 </option>
+            <option value="3"> 3 </option>
+            <option value="4"> 4 </option>
+            <option value="5"> 5 </option>
+            <option value="6"> 6 </option>
+            <option value="7"> 7 </option>
+            <option value="8"> 8 </option>
+            <option value="9"> 9 </option>
+            <option value="10"> 10 </option>
+            <option value="11"> 11 </option>
+            <option value="12"> 12 </option>
+            <option value="13"> 13 </option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="2" cellpadding="0" width="474"> <!--add class-->
+      <tr>
+        <td>
+          <table border="1px solid #000000" cellspacing="0" cellpadding="2" width="100%">
+            <tr align="center">
+              <td rowspan="2"> <!--add style-->
+                Цени:
+              </td>
+              <td colspan="3"> външен вид / състояние </td>
+            </tr>
+            <tr align="center">
+              <td width="91"> отлично </td>
+              <td width="91"> добро </td>
+              <td width="91"> лошо </td>
+            </tr>
+            <tr align="right">
+              <td align="left"> Цена на изкупуване </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+            </tr>
+            <tr align="right">
+              <td align="left"> Продажна цена </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+              <td>
+                <input type="text" name="price[]" onblur="toReal(this)"> <!--add number format?>-->
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <input id="id" type="hidden"> <!--add value-->
+           <input id="message" type="hidden"> <!--add value-->
+    </table>
+  </form>
+</div>

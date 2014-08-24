@@ -1,0 +1,38 @@
+<div id="users">
+  <form id="user" method="post" action="">
+    <div class="bar">
+      <a href="user.php" class="close"> 
+        <img src="/images/close1.gif" title="Затвори"> 
+      </a>
+    </div>
+    <pre> <?php echo $message ?> </pre>
+    <table style="margin:10px;">
+      <tr>
+        <td width="160">
+          Потребител: <br/>
+          <input type="text" name="username" value="<?php echo stripslashes($user) ?>"> <br/> <br/>
+          Парола: <br/>
+          <input type="password" name="password" value="<?php echo $pass ?>"> <br/> <br/>
+          Повторете паролата: <br/>
+          <input type="password" name="povpassword" value="<?php echo $povpass ?>"> 
+        </td>
+        <td width="150">
+          Права: <br/> <br/>
+          <input type="checkbox" name="permission[0]" <?php echo $permission[0] ?>> Администратор <br/>
+          <input type="checkbox" name="permission[1]" <?php echo $permission[1] ?>> Приемане на книги <br/>
+          <input type="checkbox" name="permission[2]" <?php echo $permission[2] ?>> Продажба на книги <br/>
+          <input type="checkbox" name="permission[3]" <?php echo $permission[3] ?>> Връщане на книги <br/>
+          <input type="checkbox" name="permission[4]" <?php echo $permission[4] ?>> Справки+ <br/>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right">
+          <hr>
+          <input type="hidden" name="id" value="<?php echo $editid ?>">
+          <input type="button" value="Отказ" onclick="location='user.php'">
+          <input type="submit" value="Запис">
+        </td>
+      </tr>
+    </table>
+  </form>  
+</div>
