@@ -18,7 +18,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu"</li>
-									<li><a href="#">Cars</a></li>
+									<li><a href="cars.php">Cars</a></li>
 									<li><a href="#">Animals</a></li>
 									<li><a href="#">Nature</a></li>
 								</ul>
