@@ -1,0 +1,16 @@
+.login {
+
+}
+
+.register{
+
+}
+
+.loginForm {
+
+}
+
+#frm-register label, input {
+    display: block;
+    margin-top: 5px;
+}

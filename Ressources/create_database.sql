@@ -9,13 +9,15 @@ USE gallery;
 CREATE TABLE Users (
 ID int auto_increment not null,
 UserName nvarchar(50) UNIQUE not null,
-Pass nvarchar(60) not null,
+PassHash nvarchar(40) not null,
+PassSalt nvarchar(255) not null
 CONSTRAINT PK_UserId PRIMARY KEY CLUSTERED(ID ASC)
 );
 
 CREATE TABLE Categories(
 ID int auto_increment not null,
 CatName nvarchar(100) not null,
+CatComment text
 CONSTRAINT PK_CategoryId PRIMARY KEY CLUSTERED(ID ASC)
 );
 
@@ -24,8 +26,7 @@ ID int auto_increment not null,
 UserId int not null,
 CategoryId int not null,
 AlbumName nvarchar(100) not null,
-IsPublic boolean DEFAULT 0,
-CatComment text,
+IsPublic boolean DEFAULT 0
 CONSTRAINT PK_ImgAlbumId PRIMARY KEY CLUSTERED(ID ASC),
 CONSTRAINT FK_Users_ImgAlbums FOREIGN KEY (UserId) REFERENCES Users(ID),
 CONSTRAINT FK_Categories_ImgAlbums FOREIGN KEY (CategoryId) REFERENCES Categories(ID)

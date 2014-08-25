@@ -5,7 +5,7 @@
  */
 function getRegistrationForm() {
     getRequest(
-        './templates/register.php',
+        './controllers/register.php',
         drawRegistrationOutput,
         drawRegistrationError
     );
