@@ -90,7 +90,7 @@ body {
 
 <body>
 
-<h1>PHP Photo Gallery ALDUIN TEAM</h1>
+<?php include_once "header.php";?>
 
 <p> GALLERY <?php echo $_GET['gal']; ?></p> <!-- Name og gallery-->
 <a class="menu"  href="http://tsetso.net/alduin/admin/">BACK TO HOME</a>   
@@ -142,6 +142,6 @@ body {
 </table>
 </form>
 
-
+<?php include_once "footer.php";?>
 </body>
 </html>

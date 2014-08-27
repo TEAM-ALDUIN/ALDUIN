@@ -8,5 +8,5 @@
 <body>
   <div id="container">
     <div id="header">
-      
+      <h1>Photo Gallery <span class="header right">ALDUIN</span></h1>
     </div>

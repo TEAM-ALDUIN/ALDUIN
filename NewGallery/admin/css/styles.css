@@ -1,3 +1,9 @@
+html, body, div{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html, body
 {
   font: 13px Arial, Helvetica;    
@@ -5,9 +11,8 @@ html, body
   height : 100%;
   min-height: 100%;
   width : 100%;
-  margin : 0;
   padding : 0; 
-margin: auto 0;
+    margin: auto 0;
 }
 
 
@@ -45,12 +50,35 @@ pre
   margin: auto;
   min-height: 100%;
   height: 100%;
+  text-align: center;
 }
 
 #header
 {
   background-color: brown;
   height: 80px;
+  padding: 25px;
+    zoom: 1;
+}
+#header:after, #header:before{
+    display: block;
+    content: '';
+}
+#header:after{
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+#header h1{
+    color:#FFFFFF;
+    margin-top: 0;
+    font-size: 25px;
+    line-height: 25px;
+    text-transform: uppercase;
+
+}
+.header.right{
+    float: right;
 }
 
 #footer
@@ -79,21 +107,24 @@ margin-top: 10px;
 
 
 body a{
-text-decoration: none;
-padding: 10px;
-background-color: #8F0B10;
-font-weight: bold;
-border-radius: 5px;
-color:#fff;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #8F0B10;
+    font-weight: bold;
+    border-radius: 5px;
+    color:#fff;
+}
+#prevlink, #nextlink{
+    background-color: transparent;
 }
 
 
 h1{
-margin: 20px;
-text-align: center;
-color:#333333;
+    margin: 20px;
+    text-align: center;
+    color:#333333;
     font-size:22px;
 }
 td{
-padding: 20px;
+    padding: 20px;
 }

@@ -1,6 +1,6 @@
 </div>
 <div id="footer">
- ALDUIN TEAME 2014.
+ ALDUIN TEAM&copy; 2014.
 </div>
 </body>
 </html>

@@ -1,143 +1,102 @@
+<?php
+//include 'common.php';
+
+$folder = "images/1";
+//where to store the images
+
+        $folder1 = "admin/images/1";
+   
+        $folder2 = "admin/images/2";
+    
+        $folder3 = "admin/images/3";
+    
+
+
+//get images from folder
+$img_array1 = glob($folder1."/*.*");
+$img_array2 = glob($folder2."/*.*");
+$img_array3 = glob($folder3."/*.*");
+//echo $img_array1[0];
+//echo $img_array2[0];
+//echo $img_array3[0]
+//var_dump($img_array);
+//arsort($img_array); //sort images by last uploaded
+//
 
 
 
 
-<?php 
 
-//where to store the images 
-$folder = "images"; 
+?>
 
-//create the folder if it doesn't exist 
-if (!dir($folder)) { 
-    mkdir($folder,0777); 
-} 
-
-//get images from folder 
-$img_array = glob("$folder/*.*"); 
-arsort($img_array); //sort images by last uploaded 
-// 
-
-//redirect to add if no images in gallery 
-if (!count($img_array) && empty($_GET[add])) { 
-    header('Location: index.php?add=1'); die;  
-} 
-
-//upload image 
-if ($_FILES[image][size] > 0) { 
-
-    //get file extension 
-    $ext = end(explode(".",$_FILES[image][name]));  
-
-    //only allow jpg, png or bmp 
-    if (strtolower($ext) == 'jpg' || strtolower($ext) == 'png' || strtolower($ext) == 'bmp') { 
-        $tmp = $_FILES[image][tmp_name]; 
-        //give the file a unique name that can be split to show caption.  (time_caption_name).extension 
-        $new = "$folder/".time()."_".base64_encode($_POST[caption])."_".base64_encode($_FILES[image][name]).".$ext"; 
-        move_uploaded_file($tmp,$new); 
-    } 
-
-    //redirect 
-    header('Location: index.php'); die; 
-} 
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
 
 
 
-//delete an image 
-if (!empty($_GET[delete])) { 
 
-    $image = $_GET[delete]; 
-    if (file_exists(base64_decode($image))) { 
-        unlink(base64_decode($image)); 
-    } 
 
-    //redirect 
-    header('Location: index.php'); die; 
+</head>
+<body>
+<a href="http://tsetso.net/alduin/home.php?gal=1" rel="lightbox[roadtrip]" title="GALLERY 1"><img src="<?php echo $img_array1[0] ; ?>" width="200" height="138" ></a>
+<a href="http://tsetso.net/alduin/home.php?gal=2" rel="lightbox[roadtrip]" title="GALLERY 2"><img src="<?php echo $img_array2[0] ; ?>" width="200" height="138" ></a>
+<a href="http://tsetso.net/alduin/home.php?gal=3" rel="lightbox[roadtrip]" title="GALLERY 3"><img src="<?php echo $img_array3[0] ; ?>" width="200" height="138" ></a>
+<?php
+echo $img_array[0];
+?>
 
-} 
-// 
+<!--show gallery-->
+<?php if (empty($_GET[add]) && count($img_array)) { ?>
+ <?php foreach($img_array as $key => $value) {
 
-?> 
-
-<!DOCTYPE HTML"> 
-
-<head> 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
-<title>..:: ALDUIN GALLERY::..</title> 
-
-<!--styles--> 
-<style type="text/css"> 
-<!-- 
-
-body { 
-    width:500px; 
-    margin:20px auto 0px auto; 
-    font-family: Geneva, Arial, Helvetica, sans-serif; 
-} 
-h1 { 
-    color:#333333; 
-    font-size:22px; 
-} 
-body a { 
-    color: #0066CC; 
-    text-decoration: none; 
-} 
-
---> 
-</style> 
-<!--end styles--> 
-
-</head> 
-
-<body> 
-
-<h1>PHP Photo Gallery ALDUIN TEAM</h1> 
+?>
 
 
 
-<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
-  <table width="500" border="0" cellpadding="10" cellspacing="0"> 
+<?php } ?>
+<?php } ?>
+<!--end show gallery-->
+<?php
+include("lp_source.php");
+?>
 
-<!--upload form--> 
-<?php if (!empty($_GET[add])) { ?> 
-    <tr> 
-      <td style="border:1px dotted #CCCCCC" bgcolor="#EBEBEB"><strong style="font-size:18px">Add an image</strong><br /> 
-        <br /> 
-        <strong>Caption</strong><br /> 
-          <input name="caption" type="text" id="caption" size="50" maxlength="50" /> 
-        <br /> 
-        <br /> 
-          <strong>Image</strong><br /> 
-        <input name="image" type="file" id="image" /> 
-      <br /> 
-      <br /> 
-      <input type="submit" name="Submit" value="Submit" />  
-      <?php if (count($img_array)) { ?>or <a href="index.php?gallery=1">Back to gallery</a><?php } ?></td> 
-    </tr> 
-<?php } ?> 
-<!--end upload form--> 
+<div>
+<center>
 
-<?php if (empty($_GET[add])) { ?> 
-    <tr> 
-      <td><a href="index.php?add=1"><strong>Add Image</strong></a></td> 
-    </tr> 
-<?php } ?> 
+<br>
+<table width="600" border="0"><tr><td align=right>
 
-<!--show gallery--> 
-<?php if (empty($_GET[add]) && count($img_array)) { ?> 
-    <?php foreach($img_array as $key => $value) {  
-    $str = explode("_",$value); //split image file name to get caption 
-    $caption = base64_decode($str[1]); //get caption 
-    ?> 
-        <tr> 
-          <td bgcolor="#EBEBEB"><img src="<?php echo $value; ?>" width="500" /><?php if ($caption) { ?><br /><b><?php echo $caption; ?></b><?php } ?> <br /> <a onclick="javascript:return confirm('Are you sure?')" href="index.php?delete=<?php echo base64_encode($value); ?>">Delete</a></td> 
-        </tr> 
+</td></tr><tr><td align=right>	
 
-    <?php } ?> 
-<?php } ?> 
-<!--end show gallery--> 
-  </table> 
-</form> 
+</td></tr><tr><td>
+
+<div class="subhead"><?php echo($mainstr); ?></div>
+
+<div class="text"><?php echo($question); ?>
+</div>
+
+<div class="text"><?php if($votingstep==1) { echo($step1str); }
+			if($votingstep==2) { echo($step2str); }
+			if($votingstep==3) { echo($step3str); }
+			?>
+</div>
+
+<div class="text">Number of votes: <?php echo($totalvotes); ?>
+</div>
 
 
-</body> 
+</div>
+
+</td></tr>
+
+
+</table></center>
+
+</div>
+
+
+
+</body>
 </html>
